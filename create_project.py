@@ -93,8 +93,18 @@ def install_additional_libraries():
         os.system(f"pip install {all_libraries}")
 
 
+def create_requirements_file():
+
+    venv_name = get_venv_name()
+
+    activate_venv(venv_name)
+
+    os.system(f"pip freeze > requirements.txt")
+
+
 build_venv()
 install_django()
 build_django_project()
 create_template_folder()
 install_additional_libraries()
+create_requirements_file()
